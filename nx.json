@@ -14,7 +14,12 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
@@ -24,12 +29,14 @@
     },
     "petcator-e2e": {
       "tags": [],
-      "implicitDependencies": ["petcator"]
-    },
-    "api": {
-      "tags": []
+      "implicitDependencies": [
+        "petcator"
+      ]
     },
     "api-interfaces": {
+      "tags": []
+    },
+    "petcator-backend": {
       "tags": []
     }
   }

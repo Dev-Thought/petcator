@@ -25,7 +25,9 @@
               "apps/petcator/src/favicon.ico",
               "apps/petcator/src/assets"
             ],
-            "styles": ["apps/petcator/src/styles.scss"],
+            "styles": [
+              "apps/petcator/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,7 +86,10 @@
               "apps/petcator/tsconfig.app.json",
               "apps/petcator/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/petcator/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/petcator/**"
+            ]
           }
         },
         "test": {
@@ -119,63 +124,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/petcator-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/petcator-e2e/**"]
-          }
-        }
-      }
-    },
-    "api": {
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
-      "projectType": "application",
-      "prefix": "api",
-      "schematics": {},
-      "architect": {
-        "build": {
-          "builder": "@nrwl/node:build",
-          "options": {
-            "outputPath": "dist/apps/api",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/api/src/environments/environment.ts",
-                  "with": "apps/api/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "api:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
             "tsConfig": [
-              "apps/api/tsconfig.app.json",
-              "apps/api/tsconfig.spec.json"
+              "apps/petcator-e2e/tsconfig.e2e.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/api/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/api/jest.config.js",
-            "tsConfig": "apps/api/tsconfig.spec.json",
-            "passWithNoTests": true
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/petcator-e2e/**"
+            ]
           }
         }
       }
@@ -193,7 +148,10 @@
               "libs/api-interfaces/tsconfig.lib.json",
               "libs/api-interfaces/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/api-interfaces/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-interfaces/**"
+            ]
           }
         },
         "test": {
@@ -201,6 +159,66 @@
           "options": {
             "jestConfig": "libs/api-interfaces/jest.config.js",
             "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "petcator-backend": {
+      "root": "apps/petcator-backend",
+      "sourceRoot": "apps/petcator-backend/src",
+      "projectType": "application",
+      "prefix": "api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/petcator-backend",
+            "main": "apps/petcator-backend/src/main.ts",
+            "tsConfig": "apps/petcator-backend/tsconfig.app.json",
+            "assets": [
+              "apps/petcator-backend/src/assets"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/petcator-backend/src/environments/environment.ts",
+                  "with": "apps/petcator-backend/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "petcator-backend:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/petcator-backend/tsconfig.app.json",
+              "apps/petcator-backend/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/petcator-backend/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/petcator-backend/jest.config.js",
+            "tsConfig": "apps/petcator-backend/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
